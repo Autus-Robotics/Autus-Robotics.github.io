@@ -211,15 +211,16 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-  background: var(--dark-bg);
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2rem;
-  gap: 1.5rem;
-  transform: translateX(100%);
+    background: var(--dark-bg);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+    overflow-y: auto;
   }
   .nav-desktop.is-open {
     transform: translateX(0);
@@ -228,9 +229,16 @@ img {
   }
   .nav-desktop.is-open a {
     color: var(--dark-text);
+    font-size: 1.1rem;
   }
   .nav-desktop.is-open a:hover {
     color: var(--blue-light);
+  }
+  .nav-desktop.is-open .btn-primary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 0.5rem;
   }
   .menu-toggle {
     display: flex;
@@ -243,6 +251,19 @@ img {
   }
   .menu-toggle.is-open span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-desktop {
+    top: 60px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-desktop {
+    top: 56px;
   }
 }
 
@@ -259,11 +280,6 @@ img {
 .hero.section-dark {
   background: linear-gradient(to right, var(--strong-blue) 0%, var(--navy) 100%);
   position: relative;
-}
-@media (max-width: 768px) {
-  .hero {
-    padding: 6rem 0 3rem;
-  }
 }
 .hero::before {
   content: '';
@@ -515,12 +531,6 @@ section {
   gap: 2rem;
   margin-bottom: 2.5rem;
 }
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
 .footer-brand .logo {
   margin-bottom: 0.75rem;
   color: #ffffff;
@@ -746,3 +756,274 @@ section {
 .animate-in.delay-1 { animation-delay: 0.1s; }
 .animate-in.delay-2 { animation-delay: 0.2s; }
 .animate-in.delay-3 { animation-delay: 0.3s; }
+
+/* ===== RESPONSIVE — Tablet (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .values-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .footer-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* ===== RESPONSIVE — Small tablets & large phones (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  /* Hero adjustments */
+  .hero {
+    min-height: auto;
+    padding: 6rem 0 3rem;
+  }
+
+  .hero.section-dark h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .hero.section-dark .hero-sub {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Page headers */
+  .page-header {
+    padding: 6rem 0 2rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .page-header p {
+    font-size: 0.95rem;
+  }
+
+  /* Services grid — stack to 1 column */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Services list (services page) — stack to single column */
+  .services-list .service-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .services-list .service-card .icon {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Testimonials — single column */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Clients logos — wrap and center */
+  .clients-logos {
+    gap: 1.25rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* CTA strip */
+  .cta-strip {
+    padding: 3rem 0;
+  }
+
+  .cta-strip .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Values (about page) */
+  .values-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact form */
+  .contact-form-wrap {
+    max-width: 100%;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== RESPONSIVE — Mobile phones (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  section {
+    padding: 2.5rem 0;
+  }
+
+  /* Header */
+  .site-header .container {
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 2.5rem;
+  }
+
+  .hero.section-dark h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+
+  .hero.section-dark .hero-sub {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .hero.section-dark .hero-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  /* Buttons — slightly smaller on phones */
+  .btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Cards */
+  .section-light .service-card {
+    padding: 1.25rem;
+  }
+
+  .section-light .testimonial-card {
+    padding: 1.25rem;
+  }
+
+  .value-item {
+    padding: 1.25rem;
+  }
+
+  /* Page header */
+  .page-header {
+    padding: 5rem 0 1.5rem;
+  }
+
+  /* About intro */
+  .about-intro p {
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  /* CTA strip */
+  .cta-strip {
+    padding: 2rem 0;
+  }
+
+  .cta-strip .section-title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  /* Form inputs — bigger touch targets */
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 0.85rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===== RESPONSIVE — Very small phones (max-width: 360px) ===== */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.65rem;
+  }
+
+  .hero.section-dark h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero.section-dark .hero-sub {
+    font-size: 0.85rem;
+  }
+
+  .section-dark .section-title,
+  .section-light .section-title {
+    font-size: 1.35rem;
+  }
+
+  .section-dark .section-desc,
+  .section-light .section-desc {
+    font-size: 0.9rem;
+  }
+
+  .site-header .container {
+    height: 56px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+  }
+
+  .section-light .service-card .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
