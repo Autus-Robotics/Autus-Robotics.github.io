@@ -49,6 +49,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Fluid base: scales from ~15px at 320px to 16px at 1200px */
+  font-size: clamp(0.9375rem, 0.875rem + 0.25vw, 1rem);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -57,6 +61,10 @@ body {
   color: var(--light-text);
   line-height: 1.6;
   overflow-x: hidden;
+  /* Prevent horizontal scroll from any element */
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 a {
@@ -79,7 +87,7 @@ img {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(0.75rem, 2vw + 0.25rem, 1.5rem);
 }
 
 /* Header */
@@ -102,14 +110,15 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: clamp(56px, 8vw, 72px);
 }
 
 .logo {
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: clamp(1.05rem, 2vw + 0.5rem, 1.35rem);
   color: #000000;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 .logo span {
   color: var(--strong-blue);
@@ -118,11 +127,11 @@ img {
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 .nav-desktop a {
   color: var(--grey-text);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw + 0.4rem, 0.95rem);
   font-weight: 500;
 }
 .nav-desktop a:hover {
@@ -133,14 +142,16 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.35rem;
-  font-size: 0.95rem;
+  padding: clamp(0.55rem, 1.5vw, 0.65rem) clamp(1rem, 3vw, 1.35rem);
+  font-size: clamp(0.875rem, 1vw + 0.4rem, 0.95rem);
   font-weight: 600;
   border-radius: var(--radius);
   border: none;
   cursor: pointer;
   transition: all var(--transition);
   font-family: var(--font-sans);
+  /* Ensure minimum 44px touch target on mobile */
+  min-height: 44px;
 }
 .btn-primary {
   background: var(--blue-dark);
@@ -207,20 +218,21 @@ img {
 @media (max-width: 768px) {
   .nav-desktop {
     position: fixed;
-    top: 72px;
+    top: clamp(56px, 8vw, 72px);
     left: 0;
     right: 0;
     bottom: 0;
     background: var(--dark-bg);
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2rem;
-    gap: 1.5rem;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    gap: 1.25rem;
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-desktop.is-open {
     transform: translateX(0);
@@ -229,7 +241,11 @@ img {
   }
   .nav-desktop.is-open a {
     color: var(--dark-text);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw + 0.5rem, 1.1rem);
+    padding: 0.5rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .nav-desktop.is-open a:hover {
     color: var(--blue-light);
@@ -254,18 +270,7 @@ img {
   }
 }
 
-@media (max-width: 480px) {
-  .nav-desktop {
-    top: 60px;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .nav-desktop {
-    top: 56px;
-  }
-}
+/* nav-desktop top position handled by clamp() above */
 
 /* Hero */
 .hero {
@@ -273,7 +278,7 @@ img {
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding: 7rem 0 4rem;
+  padding: clamp(5rem, 10vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
   position: relative;
   overflow: hidden;
 }
@@ -297,10 +302,10 @@ img {
 }
 .hero.section-dark .hero-badge {
   display: inline-block;
-  padding: 0.35rem 0.9rem;
+  padding: clamp(0.25rem, 0.5vw, 0.35rem) clamp(0.65rem, 1.5vw, 0.9rem);
   background: var(--badge-bg);
   color: var(--sky-blue);
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 0.8vw + 0.3rem, 0.8rem);
   font-weight: 600;
   border-radius: 999px;
   margin-bottom: 1.25rem;
@@ -320,10 +325,11 @@ img {
   position: relative;
 }
 .hero.section-dark .hero-sub {
-  font-size: 1.15rem;
+  font-size: clamp(0.9rem, 1vw + 0.5rem, 1.15rem);
   color: var(--dark-muted);
-  max-width: 540px;
-  margin-bottom: 2rem;
+  max-width: min(540px, 100%);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.65;
 }
 .hero-cta {
   display: flex;
@@ -333,7 +339,7 @@ img {
 
 /* Sections */
 section {
-  padding: 5rem 0;
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
 }
 .section-dark .section-label {
   font-size: 0.8rem;
@@ -367,13 +373,15 @@ section {
 }
 .section-dark .section-desc {
   color: var(--dark-muted);
-  max-width: 600px;
-  margin-bottom: 2.5rem;
+  max-width: min(600px, 100%);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(0.9rem, 1vw + 0.4rem, 1rem);
 }
 .section-light .section-desc {
   color: var(--light-muted);
-  max-width: 600px;
-  margin-bottom: 2.5rem;
+  max-width: min(600px, 100%);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(0.9rem, 1vw + 0.4rem, 1rem);
 }
 
 /* Services grid */
@@ -382,14 +390,14 @@ section {
 }
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 .section-light .service-card {
   background: var(--light-bg-card);
   border: 1px solid var(--light-border-strong);
   border-radius: var(--radius);
-  padding: 1.75rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
   transition: all var(--transition);
   box-shadow: var(--light-shadow);
 }
@@ -399,24 +407,24 @@ section {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 .section-light .service-card .icon {
-  width: 48px;
-  height: 48px;
+  width: clamp(40px, 6vw, 48px);
+  height: clamp(40px, 6vw, 48px);
   background: var(--card-icon-bg);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
 }
 .section-light .service-card h3 {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.15rem);
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--light-text);
 }
 .section-light .service-card p {
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1vw + 0.35rem, 0.95rem);
   color: var(--light-muted);
 }
 
@@ -429,20 +437,21 @@ section {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
 }
 .section-dark .client-logo {
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--dark-muted);
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.5vw + 0.3rem, 1.1rem);
   font-weight: 600;
-  padding: 0.75rem 1.25rem;
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.85rem, 2vw, 1.25rem);
   border: 1px solid var(--dark-border-strong);
   border-radius: var(--radius);
   transition: color var(--transition), border-color var(--transition);
+  min-height: 44px;
 }
 .section-dark .client-logo:hover {
   color: var(--blue-light);
@@ -464,15 +473,15 @@ section {
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
 }
 .section-light .testimonial-card {
   background: var(--light-bg-card);
   border: 1px solid var(--light-border-strong);
   border-radius: var(--radius);
-  padding: 1.75rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
   transition: border-color var(--transition);
   box-shadow: var(--light-shadow);
 }
@@ -486,7 +495,7 @@ section {
   letter-spacing: 0.15em;
 }
 .section-light .testimonial-card .quote {
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1vw + 0.35rem, 0.95rem);
   color: var(--light-muted);
   margin-bottom: 1.25rem;
   font-style: italic;
@@ -494,7 +503,7 @@ section {
 }
 .section-light .testimonial-card .author {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 1vw + 0.35rem, 0.95rem);
   color: var(--light-text);
 }
 .section-light .testimonial-card .role {
@@ -504,7 +513,7 @@ section {
 
 /* CTA strip (white tile) */
 .cta-strip {
-  padding: 4rem 0;
+  padding: clamp(2rem, 5vw, 4rem) 0;
   text-align: center;
   background: var(--light-bg);
   border-top: 1px solid var(--light-border);
@@ -523,13 +532,13 @@ section {
 .site-footer {
   background: var(--dark-bg);
   border-top: 1px solid var(--dark-border);
-  padding: 3rem 0 2rem;
+  padding: clamp(2rem, 5vw, 3rem) 0 clamp(1.5rem, 3vw, 2rem);
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 .footer-brand .logo {
   margin-bottom: 0.75rem;
@@ -539,9 +548,9 @@ section {
   color: #ffffff;
 }
 .footer-brand p {
-  font-size: 0.9rem;
+  font-size: clamp(0.825rem, 1vw + 0.3rem, 0.9rem);
   color: var(--dark-muted);
-  max-width: 260px;
+  max-width: min(260px, 100%);
 }
 .site-footer .footer-col h4 {
   font-size: 0.85rem;
@@ -580,13 +589,13 @@ section {
 
 /* Page header (inner pages, dark tile) */
 .page-header {
-  padding: 8rem 0 3rem;
+  padding: clamp(5rem, 10vw, 8rem) 0 clamp(1.5rem, 4vw, 3rem);
   text-align: center;
   background: var(--dark-bg);
   border-bottom: 1px solid var(--dark-border);
 }
 .page-header h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.5rem, 4vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
@@ -594,13 +603,14 @@ section {
 }
 .page-header p {
   color: var(--dark-muted);
-  max-width: 560px;
+  max-width: min(560px, 100%);
   margin: 0 auto;
+  font-size: clamp(0.9rem, 1vw + 0.4rem, 1rem);
 }
 
 /* Content area (light section) */
 .content-area {
-  padding: 4rem 0;
+  padding: clamp(2rem, 5vw, 4rem) 0;
   background: var(--light-bg);
 }
 .content-area .section-label { color: var(--blue-dark); margin-bottom: 0.75rem; }
@@ -622,15 +632,15 @@ section {
 
 /* Contact form */
 .contact-form-wrap {
-  max-width: 560px;
+  max-width: min(560px, 100%);
   margin: 0 auto;
 }
 .form-group {
-  margin-bottom: 1.25rem;
+  margin-bottom: clamp(1rem, 2vw, 1.25rem);
 }
 .form-group label {
   display: block;
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 1vw + 0.3rem, 0.9rem);
   font-weight: 500;
   color: var(--light-text);
   margin-bottom: 0.4rem;
@@ -638,7 +648,7 @@ section {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: clamp(0.7rem, 1.5vw, 0.85rem) clamp(0.75rem, 1.5vw, 1rem);
   font-size: 1rem;
   font-family: var(--font-sans);
   background: var(--light-bg-card);
@@ -646,6 +656,8 @@ section {
   border-radius: var(--radius);
   color: var(--light-text);
   transition: border-color var(--transition);
+  /* Prevent iOS zoom on focus by keeping font-size >= 16px */
+  min-height: 44px;
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -680,12 +692,12 @@ section {
 .services-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 .services-list .service-card {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   align-items: start;
 }
 .services-list .service-card .icon {
@@ -694,35 +706,35 @@ section {
 
 /* About page */
 .about-intro {
-  max-width: 720px;
-  margin-bottom: 3rem;
+  max-width: min(720px, 100%);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 .about-intro p {
   color: var(--light-muted);
   margin-bottom: 1rem;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1vw + 0.45rem, 1.05rem);
 }
 .values-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
 }
 .value-item {
   background: var(--light-bg-card);
   border: 1px solid var(--light-border-strong);
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: clamp(1.25rem, 3vw, 1.5rem);
   box-shadow: var(--light-shadow);
 }
 .value-item h3 {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1vw + 0.4rem, 1.05rem);
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--blue-dark);
 }
 .value-item p {
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 1vw + 0.3rem, 0.9rem);
   color: var(--light-muted);
 }
 
@@ -758,60 +770,25 @@ section {
 .animate-in.delay-3 { animation-delay: 0.3s; }
 
 /* ===== RESPONSIVE — Tablet (max-width: 1024px) ===== */
+/* Most tablet sizing is handled by clamp() above. Only layout-specific overrides here. */
 @media (max-width: 1024px) {
-  .container {
-    padding: 0 1.25rem;
-  }
-
-  section {
-    padding: 4rem 0;
-  }
-
   .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   }
 
   .testimonials-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .values-list {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .footer-grid {
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
   }
 }
 
 /* ===== RESPONSIVE — Small tablets & large phones (max-width: 768px) ===== */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-
-  section {
-    padding: 3rem 0;
-  }
-
-  /* Hero adjustments */
+  /* Hero — don't require full viewport height on small screens */
   .hero {
     min-height: auto;
-    padding: 6rem 0 3rem;
   }
 
-  .hero.section-dark h1 {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
-  }
-
-  .hero.section-dark .hero-sub {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
+  /* CTA buttons stack vertically */
   .hero-cta {
     flex-direction: column;
     gap: 0.75rem;
@@ -823,19 +800,6 @@ section {
     justify-content: center;
   }
 
-  /* Page headers */
-  .page-header {
-    padding: 6rem 0 2rem;
-  }
-
-  .page-header h1 {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
-
-  .page-header p {
-    font-size: 0.95rem;
-  }
-
   /* Services grid — stack to 1 column */
   .services-grid {
     grid-template-columns: 1fr;
@@ -844,11 +808,11 @@ section {
   /* Services list (services page) — stack to single column */
   .services-list .service-card {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .services-list .service-card .icon {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
   }
 
   /* Testimonials — single column */
@@ -858,16 +822,11 @@ section {
 
   /* Clients logos — wrap and center */
   .clients-logos {
-    gap: 1.25rem;
     flex-direction: column;
     align-items: center;
   }
 
-  /* CTA strip */
-  .cta-strip {
-    padding: 3rem 0;
-  }
-
+  /* CTA strip full-width button */
   .cta-strip .btn {
     width: 100%;
     text-align: center;
@@ -878,15 +837,9 @@ section {
     grid-template-columns: 1fr;
   }
 
-  /* Contact form */
-  .contact-form-wrap {
-    max-width: 100%;
-  }
-
-  /* Footer */
+  /* Footer — stack columns */
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 
   .footer-bottom {
@@ -896,134 +849,30 @@ section {
 }
 
 /* ===== RESPONSIVE — Mobile phones (max-width: 480px) ===== */
+/* Most sizing handled by clamp(). Only structural overrides here. */
 @media (max-width: 480px) {
-  .container {
-    padding: 0 0.85rem;
-  }
-
-  section {
-    padding: 2.5rem 0;
-  }
-
-  /* Header */
-  .site-header .container {
-    height: 60px;
-  }
-
-  .logo {
-    font-size: 1.15rem;
-  }
-
-  /* Hero */
-  .hero {
-    padding: 5rem 0 2.5rem;
-  }
-
-  .hero.section-dark h1 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
-    line-height: 1.2;
-  }
-
-  .hero.section-dark .hero-sub {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  .hero.section-dark .hero-badge {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.75rem;
-  }
-
-  /* Buttons — slightly smaller on phones */
-  .btn {
-    padding: 0.6rem 1.1rem;
-    font-size: 0.9rem;
-  }
-
-  /* Cards */
-  .section-light .service-card {
-    padding: 1.25rem;
-  }
-
-  .section-light .testimonial-card {
-    padding: 1.25rem;
-  }
-
-  .value-item {
-    padding: 1.25rem;
-  }
-
-  /* Page header */
-  .page-header {
-    padding: 5rem 0 1.5rem;
-  }
-
-  /* About intro */
-  .about-intro p {
-    font-size: 0.95rem;
-  }
-
-  /* Footer */
-  .site-footer {
-    padding: 2rem 0 1.5rem;
-  }
-
-  .footer-brand p {
-    max-width: 100%;
-  }
-
-  /* CTA strip */
-  .cta-strip {
-    padding: 2rem 0;
-  }
-
-  .cta-strip .section-title {
-    font-size: clamp(1.25rem, 5vw, 1.75rem);
-  }
-
-  /* Form inputs — bigger touch targets */
+  /* Ensure inputs keep 16px to prevent iOS zoom */
   .form-group input,
   .form-group textarea {
-    padding: 0.75rem 0.85rem;
-    font-size: 1rem;
+    font-size: 16px;
+  }
+
+  /* Full-width footer brand text */
+  .footer-brand p {
+    max-width: 100%;
   }
 }
 
 /* ===== RESPONSIVE — Very small phones (max-width: 360px) ===== */
+/* All sizing is now handled by clamp() functions — no explicit overrides needed. */
 @media (max-width: 360px) {
-  .container {
-    padding: 0 0.65rem;
-  }
-
-  .hero.section-dark h1 {
-    font-size: 1.4rem;
-  }
-
-  .hero.section-dark .hero-sub {
-    font-size: 0.85rem;
-  }
-
+  /* word-break safety for very narrow screens */
+  .hero.section-dark h1,
   .section-dark .section-title,
-  .section-light .section-title {
-    font-size: 1.35rem;
-  }
-
-  .section-dark .section-desc,
-  .section-light .section-desc {
-    font-size: 0.9rem;
-  }
-
-  .site-header .container {
-    height: 56px;
-  }
-
-  .logo {
-    font-size: 1.05rem;
-  }
-
-  .section-light .service-card .icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.25rem;
+  .section-light .section-title,
+  .page-header h1 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
