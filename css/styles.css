@@ -14,10 +14,10 @@
   /* Mapped to layout */
   --blue-light: var(--sky-blue);
   --blue-dark: var(--strong-blue);
-  --dark-bg: #4080C8;
-  --dark-bg-card: #5590D0;
+  --dark-bg: var(--strong-blue);
+  --dark-bg-card: var(--strong-blue);
   --dark-text: #f8fafd;
-  --dark-muted: #dce4f0;
+  --dark-muted: var(--faded-blue);
   --dark-border: rgba(255, 255, 255, 0.22);
   --dark-border-strong: rgba(255, 255, 255, 0.32);
   --dark-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -614,7 +614,7 @@ footer.site-footer::before {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #2560A8;
+  color: var(--strong-blue);
   margin-bottom: 0.85rem;
 }
 .section-dark .section-title {
@@ -873,7 +873,7 @@ footer.site-footer::before {
   padding: clamp(2rem, 5vw, 4rem) 0;
   background: var(--light-bg);
 }
-.content-area .section-label { color: #2560A8; font-weight: 700; margin-bottom: 0.85rem; }
+.content-area .section-label { color: var(--strong-blue); font-weight: 700; margin-bottom: 0.85rem; }
 .content-area .section-title { color: var(--light-text); }
 .content-area .section-desc { color: var(--light-muted); }
 .content-area .service-card,
