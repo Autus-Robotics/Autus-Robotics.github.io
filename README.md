@@ -1,44 +1,70 @@
 # Autus Robotics Website
 
-Website for **autusrobotics.com** — software services focused on Agentic AI, AI-based automation, and AI-driven robotics and automation software.
+Static marketing site for **autusrobotics.com** — a Berlin robotics company that
+builds shelf-scanning and restocking robot cells and perception software that
+turns a shelf photo into a 3-D planogram digital twin. Plain HTML/CSS/JS, hosted
+on GitHub Pages (no build step).
 
-## Theme
+## Positioning
 
-- **Colors:** Greenish-blue (teal) accent and greyish-black background
-- **Style:** Minimal, elegant, responsive (phone, tablet, desktop)
+The site leads with the concrete, provable capability (supermarket shelf
+scanning/restocking + photo→3-D planogram twins) rather than generic "AI
+services". The homepage proof section shows a real pipeline output (a Bonduelle
+can-tray photo → textured 3-D model → geometry).
 
 ## Pages
 
-- **Home** — Hero, services overview, clients (e.g. Andersen), happy customer testimonials, CTA
-- **Services** — Agentic AI, AI automation, AI-driven robotics & automation software
-- **About** — Company intro and approach
-- **Contact** — Enquiry form that emails **info@autusrobotics.com** (with a mailto fallback)
+- **index.html** — Hero + value proposition, capability chips, "What we do",
+  "How it works" (3 steps), proof section (photo→3-D image), by-the-numbers,
+  technology/approach, CTA.
+- **services.html** — Shelf scanning, robotic restocking/picking/palletising,
+  photo→3-D planogram twins, fixed-fee pilots.
+- **about.html** — Company story, approach, team (placeholders where names are
+  not yet public).
+- **contact.html** — Enquiry form (see below).
+- **impressum.html** / **datenschutz.html** — German legal pages (§5 DDG
+  Impressum, DSGVO privacy policy). **Templates with clearly-marked
+  placeholders** (`.fillme` / `.legal-placeholder`) the owner must complete and
+  have reviewed before launch.
+
+## Structure
+
+- `css/styles.css` — single stylesheet; design tokens + `@font-face` at the top.
+- `js/config.js` — **single source of truth** for the enquiry-form provider/key.
+- `js/contact.js` — enquiry-form handler (validation, honeypot, submit, fallback).
+- `js/main.js` — nav, header scroll state, reveal-on-scroll (IntersectionObserver,
+  respects `prefers-reduced-motion`; gated on `html.js` so no-JS shows content).
+- `assets/fonts/` — self-hosted Plus Jakarta Sans (woff2, latin + latin-ext).
+  **No third-party font CDN.**
+- `assets/img/` — proof image (`shelf-to-3d.jpg`/`.webp`) and OG image.
+- `assets/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`.
+
+## Enquiry form
+
+The form on `contact.html` posts to a pluggable endpoint configured in
+[`js/config.js`](js/config.js) — Web3Forms by default, Formspree optional. It
+validates input client-side, includes a honeypot spam field, and shows
+success/error states. Until an access key is configured it gracefully falls back
+to opening the visitor's email client with a pre-filled draft to
+**info@autusrobotics.com**, so no enquiry is lost.
+
+**Owner's one-minute step:** get a free access key at <https://web3forms.com>
+(enter your email, no account) and paste it into `js/config.js`.
 
 ## Running locally
 
-Open `index.html` in a browser, or use a local server:
-
 ```bash
-npx serve .
+python3 -m http.server 8000    # then visit http://localhost:8000
 ```
 
-Or with Python:
+## Testing
+
+A dependency-free, network-free smoke test validates that every page parses and
+has the core scaffolding, that all local references resolve, and that ids are
+unique:
 
 ```bash
-python -m http.server 8000
+python3 scripts/check_site.py
 ```
 
-Then visit `http://localhost:8000`.
-
-## Testimonials
-
-The “Happy customers” section on the home page uses static placeholder quotes. To show real feedback:
-
-1. Edit the `.testimonial-card` blocks in `index.html` (inside `#testimonials-grid`).
-2. Replace quote, author, and role with real customer testimonials (with their permission).
-
-## Contact
-
-The enquiry form on `contact.html` posts messages to a pluggable email endpoint (Web3Forms by default, Formspree optional) and validates input client-side. Until an access key is configured it gracefully falls back to opening the visitor’s email client with a pre-filled draft to **info@autusrobotics.com**, so no enquiry is lost.
-
-To make enquiries arrive by email, follow the one-minute setup at the top of [`js/config.js`](js/config.js) — that file is the single source of truth for the provider, access key, and destination inbox.
+This is the `commands.test` gate in `.no-mistakes.yaml`.

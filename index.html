@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f1117" />
-  <meta name="description" content="Autus Robotics – Next-generation AI software: Agentic AI, automation & AI-driven robotics. Trusted by teams worldwide." />
-  <title>Autus Robotics | Agentic AI & Automation Software</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <meta name="theme-color" content="#2F67B4" />
+  <title>Autus Robotics | Robots that keep supermarket shelves full</title>
+  <meta name="description" content="Autus Robotics (Berlin) builds robot cells that scan and restock supermarket shelves, plus perception software that turns a shelf photo into a live 3-D planogram digital twin. Proven on real hardware. Pilot in 3 weeks." />
+  <link rel="canonical" href="https://autusrobotics.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Autus Robotics" />
+  <meta property="og:title" content="Robots that keep supermarket shelves full and accurate" />
+  <meta property="og:description" content="Shelf-scanning and restocking robots, plus photo-to-3D planogram digital twins. Built in Berlin, proven on real hardware, piloted in 3 weeks." />
+  <meta property="og:image" content="https://autusrobotics.com/assets/img/og-autus.jpg" />
+  <meta property="og:url" content="https://autusrobotics.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/styles.css?v=4" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">Autus<span> Robotics</span></a>
@@ -19,9 +30,9 @@
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
-        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+        <a href="contact.html" class="btn btn-primary">Book a call</a>
       </nav>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -29,225 +40,170 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero section-dark">
       <div class="container hero-layout">
         <div class="hero-text">
-          <p class="hero-badge animate-in">Software services · AI & robotics</p>
-          <h1 class="animate-in delay-1">A world of <span class="highlight">next-generation AI</span> software platforms</h1>
-          <p class="hero-sub animate-in delay-2">We specialize in Agentic AI and new generational AI-based automation solutions, plus AI-driven robotics and automation software—helping enterprises build intelligent systems that scale.</p>
+          <p class="hero-badge animate-in">Retail robotics &middot; Berlin</p>
+          <h1 class="animate-in delay-1">Robots that keep supermarket shelves <span class="highlight">full and accurate</span></h1>
+          <p class="hero-sub animate-in delay-2">Autus Robotics builds robot cells that scan and restock retail shelves &mdash; and perception software that turns a single shelf photo into a live 3-D planogram digital twin. Proven on real hardware, piloted in three weeks.</p>
           <div class="hero-cta animate-in delay-3">
-            <a href="services.html" class="btn btn-primary">Explore services</a>
-            <a href="contact.html" class="btn btn-outline">Contact us</a>
+            <a href="contact.html" class="btn btn-primary">Book a 20-min call</a>
+            <a href="#how" class="btn btn-outline">See how it works</a>
           </div>
+          <p class="hero-microtrust animate-in delay-3">
+            <span>&#128205; Berlin, Germany</span>
+            <span>&#129302; Built on Universal Robots hardware</span>
+            <span>&#9201; Pilot in 3 weeks</span>
+          </p>
         </div>
-        <div class="hero-slideshow animate-in delay-2">
-          <div class="slideshow-track" id="slideshow-track">
-            <!-- Slide 1: Agentic AI + Communication -->
-            <div class="slide active">
-              <div class="slide-visual visual-comms">
-                <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Phone -->
-                  <rect x="100" y="30" width="120" height="200" rx="16" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="rgba(255,255,255,0.06)"/>
-                  <rect x="140" y="42" width="40" height="4" rx="2" fill="rgba(255,255,255,0.3)"/>
-                  <!-- Chat bubbles -->
-                  <rect class="anim-float" x="115" y="70" width="80" height="28" rx="10" fill="rgba(255,255,255,0.15)"/>
-                  <rect class="anim-float delay-a" x="135" y="108" width="70" height="28" rx="10" fill="rgba(140,165,203,0.3)"/>
-                  <rect class="anim-float delay-b" x="115" y="146" width="60" height="28" rx="10" fill="rgba(255,255,255,0.15)"/>
-                  <!-- AI brain icon -->
-                  <circle class="anim-pulse" cx="260" cy="80" r="28" fill="rgba(140,165,203,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-                  <path d="M250 80 Q255 68 260 75 Q265 68 270 80" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none"/>
-                  <circle cx="254" cy="78" r="2" fill="rgba(255,255,255,0.7)"/>
-                  <circle cx="266" cy="78" r="2" fill="rgba(255,255,255,0.7)"/>
-                  <!-- Connection lines -->
-                  <line class="anim-dash" x1="220" y1="80" x2="232" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
-                  <!-- WhatsApp-style icon -->
-                  <circle cx="60" cy="130" r="22" fill="rgba(37,211,102,0.25)" stroke="rgba(37,211,102,0.5)" stroke-width="1.5"/>
-                  <path d="M52 138 Q50 130 55 124 Q60 118 68 120 Q74 122 74 130 Q74 136 68 138 L70 144 L64 140 Q58 142 52 138Z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
-                  <!-- Floating dots -->
-                  <circle class="anim-blink" cx="80" cy="60" r="3" fill="rgba(255,255,255,0.25)"/>
-                  <circle class="anim-blink delay-a" cx="270" cy="160" r="3" fill="rgba(255,255,255,0.25)"/>
-                  <circle class="anim-blink delay-b" cx="50" cy="200" r="2" fill="rgba(255,255,255,0.2)"/>
-                </svg>
-              </div>
-              <p class="slide-caption">Agentic AI across communication channels</p>
-            </div>
-            <!-- Slide 2: Robotics Automation -->
-            <div class="slide">
-              <div class="slide-visual visual-robotics">
-                <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Robot arm -->
-                  <rect x="140" y="180" width="40" height="50" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-                  <rect x="120" y="170" width="80" height="16" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-                  <!-- Arm segments -->
-                  <line class="anim-arm" x1="160" y1="170" x2="160" y2="120" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
-                  <line class="anim-arm delay-a" x1="160" y1="120" x2="200" y2="80" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
-                  <circle cx="160" cy="120" r="5" fill="rgba(140,165,203,0.4)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-                  <!-- Gripper -->
-                  <path class="anim-grab" d="M195 75 L205 65 M195 75 L210 80" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
-                  <!-- Gears -->
-                  <circle class="anim-spin" cx="70" cy="100" r="24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="8 6"/>
-                  <circle class="anim-spin-reverse" cx="95" cy="130" r="16" fill="none" stroke="rgba(140,165,203,0.3)" stroke-width="2" stroke-dasharray="6 4"/>
-                  <!-- AI sparkle -->
-                  <path class="anim-pulse" d="M250 50 L253 58 L261 61 L253 64 L250 72 L247 64 L239 61 L247 58Z" fill="rgba(255,255,255,0.4)"/>
-                  <path class="anim-pulse delay-a" d="M280 120 L282 126 L288 128 L282 130 L280 136 L278 130 L272 128 L278 126Z" fill="rgba(255,255,255,0.3)"/>
-                  <!-- Data flow -->
-                  <circle class="anim-blink" cx="260" cy="90" r="2.5" fill="rgba(255,255,255,0.3)"/>
-                  <circle class="anim-blink delay-b" cx="240" cy="170" r="2" fill="rgba(255,255,255,0.2)"/>
-                </svg>
-              </div>
-              <p class="slide-caption">AI-powered robotics & automation</p>
-            </div>
-            <!-- Slide 3: Workflow Automation -->
-            <div class="slide">
-              <div class="slide-visual visual-workflow">
-                <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Flow nodes -->
-                  <rect class="anim-float" x="30" y="100" width="60" height="40" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-                  <rect class="anim-float delay-a" x="130" y="60" width="60" height="40" rx="8" fill="rgba(140,165,203,0.2)" stroke="rgba(140,165,203,0.5)" stroke-width="1.5"/>
-                  <rect class="anim-float delay-b" x="130" y="140" width="60" height="40" rx="8" fill="rgba(140,165,203,0.2)" stroke="rgba(140,165,203,0.5)" stroke-width="1.5"/>
-                  <rect class="anim-float" x="230" y="100" width="60" height="40" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-                  <!-- Connecting arrows -->
-                  <path class="anim-dash" d="M90 115 Q110 85 130 80" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
-                  <path class="anim-dash delay-a" d="M90 125 Q110 155 130 160" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
-                  <path class="anim-dash delay-b" d="M190 80 Q210 95 230 115" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
-                  <path class="anim-dash" d="M190 160 Q210 145 230 125" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
-                  <!-- Icons inside nodes -->
-                  <text x="52" y="125" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.6)">📥</text>
-                  <text x="160" y="85" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.6)">⚙️</text>
-                  <text x="160" y="165" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.6)">🔍</text>
-                  <text x="260" y="125" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.6)">✅</text>
-                  <!-- Particles -->
-                  <circle class="anim-travel" cx="90" cy="115" r="3" fill="rgba(255,255,255,0.5)"/>
-                  <circle class="anim-blink" cx="160" cy="30" r="2" fill="rgba(255,255,255,0.2)"/>
-                  <circle class="anim-blink delay-a" cx="280" cy="60" r="2.5" fill="rgba(255,255,255,0.25)"/>
-                  <circle class="anim-blink delay-b" cx="40" cy="200" r="2" fill="rgba(255,255,255,0.2)"/>
-                </svg>
-              </div>
-              <p class="slide-caption">Intelligent workflow automation</p>
-            </div>
-            <!-- Slide 4: Scalable AI Systems -->
-            <div class="slide">
-              <div class="slide-visual visual-scale">
-                <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Central hub -->
-                  <circle class="anim-pulse" cx="160" cy="130" r="32" fill="rgba(140,165,203,0.15)" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
-                  <circle cx="160" cy="130" r="14" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-                  <text x="160" y="135" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.7)">AI</text>
-                  <!-- Orbiting nodes -->
-                  <circle class="anim-orbit" cx="160" cy="50" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-                  <circle class="anim-orbit delay-a" cx="250" cy="100" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-                  <circle class="anim-orbit delay-b" cx="250" cy="175" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-                  <circle class="anim-orbit" cx="160" cy="215" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-                  <circle class="anim-orbit delay-a" cx="70" cy="175" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-                  <circle class="anim-orbit delay-b" cx="70" cy="100" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-                  <!-- Connection lines to hub -->
-                  <line class="anim-dash" x1="160" y1="64" x2="160" y2="98" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-                  <line class="anim-dash delay-a" x1="238" y1="108" x2="192" y2="122" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-                  <line class="anim-dash delay-b" x1="238" y1="168" x2="192" y2="145" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-                  <line class="anim-dash" x1="160" y1="201" x2="160" y2="162" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-                  <line class="anim-dash delay-a" x1="82" y1="168" x2="128" y2="145" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-                  <line class="anim-dash delay-b" x1="82" y1="108" x2="128" y2="122" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-                  <!-- Outer ring -->
-                  <circle cx="160" cy="130" r="90" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 6"/>
-                  <!-- Sparkles -->
-                  <circle class="anim-blink" cx="120" cy="40" r="2" fill="rgba(255,255,255,0.25)"/>
-                  <circle class="anim-blink delay-a" cx="280" cy="200" r="2.5" fill="rgba(255,255,255,0.2)"/>
-                  <circle class="anim-blink delay-b" cx="40" cy="220" r="2" fill="rgba(255,255,255,0.15)"/>
-                </svg>
-              </div>
-              <p class="slide-caption">Scalable AI systems for enterprise</p>
-            </div>
-          </div>
-          <!-- Slide indicators & controls -->
-          <div class="slide-controls">
-            <button class="slide-arrow slide-prev" id="slide-prev" aria-label="Previous slide">‹</button>
-            <div class="slide-dots" id="slide-dots">
-              <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
-              <button class="dot" data-slide="1" aria-label="Slide 2"></button>
-              <button class="dot" data-slide="2" aria-label="Slide 3"></button>
-              <button class="dot" data-slide="3" aria-label="Slide 4"></button>
-            </div>
-            <button class="slide-arrow slide-next" id="slide-next" aria-label="Next slide">›</button>
-          </div>
-        </div>
+        <figure class="hero-proof animate-in delay-2">
+          <span class="proof-tag">Real pipeline output</span>
+          <picture>
+            <source srcset="assets/img/shelf-to-3d.webp" type="image/webp" />
+            <img src="assets/img/shelf-to-3d.jpg" width="1200" height="350" decoding="async"
+                 alt="One in-store photo of a Bonduelle Goldmais can-tray turned into a textured 3-D model (front and angled views) and clean untextured geometry." />
+          </picture>
+          <figcaption>One in-store shelf photo &rarr; textured 3-D model &rarr; clean geometry.</figcaption>
+        </figure>
       </div>
     </section>
+
+    <div class="trust-bar">
+      <div class="container">
+        <ul class="trust-chips reveal">
+          <li>Shelf scanning</li>
+          <li>Robotic restocking</li>
+          <li>Picking &amp; palletising</li>
+          <li>Tray perception</li>
+          <li>Planogram digital twins</li>
+        </ul>
+      </div>
+    </div>
 
     <section id="services" class="services-section section-light">
       <div class="container">
-        <p class="section-label">What we do</p>
-        <h2 class="section-title">AI & automation that moves your business forward</h2>
-        <p class="section-desc">From Agentic AI to robotics software, we deliver modern automation and intelligent systems tailored to your needs.</p>
+        <p class="section-label reveal">What we do</p>
+        <h2 class="section-title reveal">Automation for real retail and logistics work</h2>
+        <p class="section-desc reveal">We solve a physical, measurable problem &mdash; on-shelf availability &mdash; and back it with a perception pipeline that most &ldquo;AI&rdquo; vendors don&rsquo;t have.</p>
         <div class="services-grid">
-          <article class="service-card">
-            <div class="icon">🤖</div>
-            <h3>Agentic AI</h3>
-            <p>Autonomous agents that plan, reason, and act—transforming workflows and decision-making with next-generation AI.</p>
+          <article class="service-card reveal">
+            <div class="icon" aria-hidden="true">&#128269;</div>
+            <h3>Shelf scanning &amp; availability</h3>
+            <p>Our robot cell scans aisles for gaps, misplacements and pricing errors, so out-of-stocks get caught and fixed &mdash; without adding staff hours.</p>
           </article>
-          <article class="service-card">
-            <div class="icon">⚡</div>
-            <h3>AI-based automation</h3>
-            <p>Intelligent automation platforms that learn and adapt, reducing manual work and scaling operations.</p>
+          <article class="service-card reveal delay-1">
+            <div class="icon" aria-hidden="true">&#129302;</div>
+            <h3>Robotic restocking &amp; picking</h3>
+            <p>The same cell can pick and restock. We build on standard, proven robots (e.g. Universal Robots) with our own perception and control software.</p>
           </article>
-          <article class="service-card">
-            <div class="icon">🔧</div>
-            <h3>AI-driven robotics & automation software</h3>
-            <p>Software for robotics and industrial automation—control, perception, and integration with your stack.</p>
+          <article class="service-card reveal delay-2">
+            <div class="icon" aria-hidden="true">&#128241;</div>
+            <h3>Photo&rarr;3-D planogram twins</h3>
+            <p>Our perception software turns an ordinary shelf photo into a textured 3-D product/tray model &mdash; a live planogram digital twin your team can act on.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="clients" class="clients-section section-dark">
+    <section id="how" class="section-light" style="background: var(--light-bg-alt);">
       <div class="container">
-        <p class="section-label">Trusted by teams worldwide</p>
-        <h2 class="section-title">Our client network spans the globe</h2>
-        <p class="section-desc">We work with leading organizations across industries. Among our happy clients is Andersen—a software development company—alongside a growing network of partners around the world.</p>
-        <div class="clients-logos">
-          <div class="client-logo">
-            <a href="https://andersenlab.com/" target="_blank" rel="noopener noreferrer">Andersen</a>
+        <p class="section-label reveal">How it works</p>
+        <h2 class="section-title reveal">From a shelf photo to a robot that keeps it full</h2>
+        <p class="section-desc reveal">One loop, three steps &mdash; insight to action.</p>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3>Photograph the shelf</h3>
+            <p>Start with a single in-store photo of a shelf or product tray. No special rig, no store downtime.</p>
           </div>
-          <div class="client-logo" aria-hidden="true">Global partners</div>
+          <div class="step-card reveal delay-1">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3>Build the digital twin</h3>
+            <p>Our pipeline reconstructs a textured 3-D model and clean geometry &mdash; a planogram twin of what&rsquo;s really on the shelf.</p>
+          </div>
+          <div class="step-card reveal delay-2">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3>The robot keeps it full</h3>
+            <p>The same model drives a robot cell that scans for gaps and restocks &mdash; closing the loop from insight to action.</p>
+          </div>
         </div>
-        <p class="globe-note">Our client network is spread across multiple regions—we deliver wherever your team is.</p>
       </div>
     </section>
 
-    <section id="testimonials" class="testimonials-section section-light">
+    <section class="proof-section section-dark">
       <div class="container">
-        <p class="section-label">Happy customers</p>
-        <h2 class="section-title">What our clients say</h2>
-        <p class="section-desc">Feedback from our customers—shared here as a trust marker for how we work.</p>
-        <div class="testimonials-grid" id="testimonials-grid">
-          <!-- Testimonials loaded or rendered here -->
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="quote">Working with Autus Robotics gave us a clear path to integrate Agentic AI into our workflows. Professional, responsive, and focused on outcomes.</p>
-            <p class="author">— Enterprise client</p>
-            <p class="role">Software & innovation</p>
+        <p class="section-label reveal">Proof</p>
+        <h2 class="section-title reveal">Real output, not a render</h2>
+        <p class="section-desc reveal">The image below is a real result from our pipeline &mdash; a Bonduelle Goldmais can-tray photographed in a store, reconstructed into a textured 3-D model and clean geometry.</p>
+        <figure class="proof-figure reveal">
+          <picture>
+            <source srcset="assets/img/shelf-to-3d.webp" type="image/webp" />
+            <img src="assets/img/shelf-to-3d.jpg" width="1200" height="350" loading="lazy" decoding="async"
+                 alt="Four panels: the original in-store photo of a Bonduelle Goldmais can-tray, a textured 3-D model from the front, the same model at an angle, and the clean untextured geometry." />
+          </picture>
+          <figcaption>Original photo &middot; textured model (front) &middot; textured model (angled) &middot; untextured geometry.</figcaption>
+        </figure>
+        <div class="proof-points">
+          <div class="proof-point reveal">
+            <h3>From one photo</h3>
+            <p>No scanning rig or store closure &mdash; a single in-store photo is enough to reconstruct the tray in 3-D.</p>
           </div>
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="quote">Their AI-driven automation software fit our stack from day one. We now have a scalable platform that our team can build on.</p>
-            <p class="author">— Product lead</p>
-            <p class="role">Tech company</p>
+          <div class="proof-point reveal delay-1">
+            <h3>Hard to copy</h3>
+            <p>A working retail robot cell <em>and</em> a photo&rarr;twin pipeline is a scarce combination &mdash; most vendors have neither.</p>
           </div>
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="quote">From discovery to delivery, the team was transparent and technically strong. We’re happy to have them as a partner.</p>
-            <p class="author">— Engineering director</p>
-            <p class="role">Global software company</p>
+          <div class="proof-point reveal delay-2">
+            <h3>Prove it on your aisle</h3>
+            <p>We build a twin of one of your own aisles in a short, fixed-fee pilot before any large commitment.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section-light">
+      <div class="container">
+        <p class="section-label reveal">By the numbers</p>
+        <h2 class="section-title reveal">A small, de-risked way to start</h2>
+        <div class="stats-grid">
+          <div class="stat reveal">
+            <div class="stat-num">3 weeks</div>
+            <div class="stat-label">from kickoff to a working single-aisle pilot</div>
+          </div>
+          <div class="stat reveal delay-1">
+            <div class="stat-num">1 photo</div>
+            <div class="stat-label">is all it takes to build a shelf&rsquo;s 3-D planogram twin</div>
+          </div>
+          <div class="stat reveal delay-2">
+            <div class="stat-num"><span class="fillme">&mdash;&nbsp;%</span></div>
+            <div class="stat-label">on-shelf availability uplift, measured in your pilot</div>
+            <div class="stat-src">Owner to publish a real figure after the first pilot.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark">
+      <div class="container">
+        <p class="section-label reveal">Technology &amp; approach</p>
+        <h2 class="section-title reveal">Proven hardware, our own software</h2>
+        <p class="section-desc reveal">We pair standard, reliable robot hardware with perception and control software we build in-house &mdash; and we prove value in a fixed-fee pilot before you commit.</p>
+        <ul class="tech-list reveal">
+          <li>Universal Robots (UR10)</li>
+          <li>Computer vision &amp; perception</li>
+          <li>3-D reconstruction</li>
+          <li>Robot control &amp; integration</li>
+          <li>Digital twins</li>
+        </ul>
+        <p class="tech-note">We show partner or technology logos only where we have permission to use them; otherwise capabilities are listed as text.</p>
       </div>
     </section>
 
     <section class="cta-strip section-light">
       <div class="container">
-        <h2 class="section-title">Ready to build with next-generation AI?</h2>
-        <p class="section-desc">Tell us about your project. We’ll get back to you shortly.</p>
-        <a href="contact.html" class="btn btn-primary">Contact us</a>
+        <h2 class="section-title reveal">Ready to see it on your own shelves?</h2>
+        <p class="section-desc reveal">Tell us about your aisles or line. We&rsquo;ll set up a short, fixed-fee pilot with a clear success measure agreed up front.</p>
+        <a href="contact.html" class="btn btn-primary reveal">Book a 20-min call</a>
       </div>
     </section>
   </main>
@@ -257,10 +213,10 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo">Autus<span> Robotics</span></div>
-          <p>Specialized in Agentic AI, AI-based automation, and AI-driven robotics and automation software.</p>
+          <p>Robot cells that scan and restock supermarket shelves, and perception software that turns a shelf photo into a live 3-D planogram twin.</p>
         </div>
         <div class="footer-col">
-          <h4>Site</h4>
+          <h2>Site</h2>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -269,18 +225,29 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:info@autusrobotics.com">info@autusrobotics.com</a></li>
+          <h2>Contact</h2>
+          <address class="footer-address">
+            Autus Robotics<br />
+            <span class="fillme">Street address &mdash; to be filled</span><br />
+            <span class="fillme">Postal code, Berlin</span><br />
+            Germany<br />
+            <a href="mailto:info@autusrobotics.com">info@autusrobotics.com</a>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul class="footer-legal-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Autus Robotics. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Autus Robotics. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

@@ -1,4 +1,27 @@
 /* Autus Robotics - Custom palette */
+/* Self-hosted Plus Jakarta Sans (variable, latin + latin-ext). No third-party
+   font CDN — files live in assets/fonts/. */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   /* Palette (from user spec) */
   --navy: #374E7A;           /* 1. Dark Navy Blue – AUTUS ROBOTICS text */
@@ -6,7 +29,7 @@
   --sky-blue: #8CA5CB;       /* 3. Light Sky Blue – logo accent + shapes, links */
   --faded-blue: #C9D2E2;    /* 4. Very Light Blue – faded pattern, subtle bg */
   --off-white: #F7F7F6;      /* 5. Light background – clean and bright */
-  --grey-text: #7A7E82;      /* 6. Grey text (address lines, muted) – lighter */
+  --grey-text: #5C6066;      /* 6. Grey text (muted) – darkened to meet AA >=4.5:1 on light bg */
   --dark-grey: #444342;     /* 7. Dark Grey (strong text) – softened further */
   --radius: 12px;
   --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -17,7 +40,7 @@
   --dark-bg: var(--strong-blue);
   --dark-bg-card: var(--strong-blue);
   --dark-text: #f8fafd;
-  --dark-muted: var(--faded-blue);
+  --dark-muted: #E6ECF6;     /* lightened to meet AA >=4.5:1 on the blue hero bg */
   --dark-border: rgba(255, 255, 255, 0.22);
   --dark-border-strong: rgba(255, 255, 255, 0.32);
   --dark-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -37,6 +60,19 @@
   --card-icon-bg: rgba(55, 78, 122, 0.07);
   --card-hover-border: var(--sky-blue);
   --star-color: #c9a227;
+  /* Spacing scale (consistent rhythm across sections) */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --radius-lg: 20px;
+  /* Accessible accent: darker blue meets >= 4.5:1 on white for text/links */
+  --accent: var(--strong-blue);
+  --accent-ink: #244a86;   /* AA text on off-white */
+  --success: #0f5132;
 }
 
 *,
@@ -68,7 +104,7 @@ body {
 }
 
 a {
-  color: var(--blue-light);
+  color: var(--accent-ink); /* AA >=4.5:1 on light backgrounds */
   text-decoration: none;
   transition: color var(--transition);
 }
@@ -812,7 +848,7 @@ footer.site-footer::before {
   color: var(--dark-muted);
   max-width: min(260px, 100%);
 }
-.site-footer .footer-col h4 {
+.site-footer .footer-col h2 {
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -945,7 +981,8 @@ footer.site-footer::before {
   color: var(--light-muted);
 }
 .contact-note a {
-  color: var(--blue-light);
+  color: var(--accent-ink);
+  text-decoration: underline;
 }
 
 /* Enquiry form — two-column rows, validation, consent, honeypot, status */
@@ -1244,4 +1281,394 @@ footer.site-footer::before {
     overflow-wrap: break-word;
     hyphens: auto;
   }
+}
+
+/* ============================================================
+   REDESIGN v4 — reposition, trust signals, reveal-on-scroll
+   ============================================================ */
+
+/* Reveal-on-scroll as progressive enhancement: only hidden when JS is active
+   (html.js is set by an inline head script). Without JS — and for search
+   crawlers — content is fully visible. .is-visible reveals; reduced-motion
+   forces everything visible. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+html.js .reveal.delay-1 { transition-delay: 0.08s; }
+html.js .reveal.delay-2 { transition-delay: 0.16s; }
+html.js .reveal.delay-3 { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Skip link for keyboard/AT users */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 2000;
+  background: var(--strong-blue);
+  color: #fff !important;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Visible focus ring for keyboard users (accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.dot:focus-visible {
+  outline: 3px solid var(--strong-blue);
+  outline-offset: 2px;
+}
+.section-dark a:focus-visible,
+.section-dark button:focus-visible {
+  outline-color: #fff;
+}
+
+/* Language switch note in nav (follow-up placeholder) */
+.lang-note {
+  color: var(--grey-text);
+  font-size: 0.8rem;
+}
+
+/* Hero: real proof visual instead of abstract slideshow */
+.hero-proof {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  padding: clamp(0.75rem, 2vw, 1rem);
+  box-shadow: 0 24px 60px rgba(15, 22, 40, 0.28);
+}
+.hero-proof img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.hero-proof figcaption {
+  color: var(--dark-grey);
+  font-size: clamp(0.78rem, 1vw + 0.3rem, 0.88rem);
+  font-weight: 500;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+.hero-proof .proof-tag {
+  display: inline-block;
+  background: var(--card-icon-bg);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+}
+.hero-microtrust {
+  margin-top: 1.1rem;
+  color: var(--dark-muted);
+  font-size: clamp(0.78rem, 1vw + 0.3rem, 0.9rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: center;
+}
+.hero-microtrust span { white-space: nowrap; }
+
+/* Trust bar — capability chips strip */
+.trust-bar {
+  background: var(--light-bg-alt);
+  border-top: 1px solid var(--light-border-strong);
+  border-bottom: 1px solid var(--light-border-strong);
+  padding: clamp(1rem, 2.5vw, 1.5rem) 0;
+}
+.trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.5vw, 0.85rem);
+}
+.trust-chips li {
+  list-style: none;
+  border: 1px solid var(--light-border-strong);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: clamp(0.82rem, 1vw + 0.3rem, 0.92rem);
+  font-weight: 600;
+  color: var(--dark-grey);
+  background: #fff;
+}
+
+/* How it works — numbered steps */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  counter-reset: step;
+}
+.step-card {
+  position: relative;
+  background: var(--light-bg-card);
+  border: 1px solid var(--light-border-strong);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--light-shadow);
+}
+.step-card .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--strong-blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+.step-card h3 {
+  font-size: clamp(1.05rem, 1.5vw + 0.3rem, 1.2rem);
+  font-weight: 600;
+  color: var(--light-text);
+  margin-bottom: 0.5rem;
+}
+.step-card p {
+  color: var(--light-muted);
+  font-size: clamp(0.875rem, 1vw + 0.35rem, 0.95rem);
+}
+
+/* Generic dark section fallback background so light-on-dark text stays legible
+   (e.g. the Technology & approach band). Hero keeps its own gradient via higher
+   specificity (.hero.section-dark). */
+section.section-dark {
+  background: var(--dark-bg);
+}
+
+/* Proof section — the photo -> 3D figure */
+.proof-section { background: var(--dark-bg); }
+.proof-figure {
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: var(--radius-lg);
+  padding: clamp(0.85rem, 2vw, 1.25rem);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+.proof-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.proof-figure figcaption {
+  color: var(--dark-grey);
+  font-size: clamp(0.82rem, 1vw + 0.3rem, 0.95rem);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.proof-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+.proof-point {
+  border: 1px solid var(--dark-border-strong);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+.proof-point h3 {
+  color: #fff;
+  font-size: clamp(0.95rem, 1vw + 0.35rem, 1.05rem);
+  margin-bottom: 0.4rem;
+}
+.proof-point p {
+  color: var(--dark-muted);
+  font-size: clamp(0.85rem, 1vw + 0.3rem, 0.92rem);
+}
+
+/* Stats / by-the-numbers */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+.stat {
+  text-align: center;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--light-border-strong);
+  border-radius: var(--radius);
+  background: var(--light-bg-card);
+  box-shadow: var(--light-shadow);
+}
+.stat .stat-num {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--accent-ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.stat .stat-label {
+  color: var(--light-muted);
+  font-size: clamp(0.82rem, 1vw + 0.3rem, 0.92rem);
+  margin-top: 0.4rem;
+}
+.stat .stat-src {
+  color: var(--light-muted);
+  font-size: 0.72rem;
+  margin-top: 0.35rem;
+  opacity: 0.85;
+}
+/* Owner-fill placeholder marker */
+.fillme {
+  border-bottom: 2px dashed var(--sky-blue);
+  padding-bottom: 1px;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+.team-card {
+  background: var(--light-bg-card);
+  border: 1px solid var(--light-border-strong);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3vw, 1.5rem);
+  box-shadow: var(--light-shadow);
+  text-align: center;
+}
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-icon-bg);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.team-card h3 {
+  font-size: 1.02rem;
+  color: var(--light-text);
+  margin-bottom: 0.2rem;
+}
+.team-card .role {
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+.team-card p {
+  color: var(--light-muted);
+  font-size: 0.86rem;
+}
+
+/* Technology / partners text list */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1.5vw, 0.85rem);
+  margin-top: clamp(1rem, 2.5vw, 1.5rem);
+}
+.tech-list li {
+  list-style: none;
+  border: 1px solid var(--dark-border-strong);
+  border-radius: var(--radius);
+  padding: 0.55rem 1rem;
+  color: var(--dark-text);
+  font-weight: 600;
+  font-size: clamp(0.82rem, 1vw + 0.3rem, 0.92rem);
+}
+.tech-note {
+  color: var(--dark-muted);
+  font-size: 0.82rem;
+  margin-top: 0.85rem;
+}
+
+/* Legal pages (Impressum / Datenschutz) */
+.legal-content {
+  max-width: min(760px, 100%);
+  margin: 0 auto;
+}
+.legal-content h2 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  color: var(--light-text);
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0.6rem;
+}
+.legal-content h3 {
+  font-size: 1rem;
+  color: var(--light-text);
+  margin: 1.25rem 0 0.4rem;
+}
+.legal-content p,
+.legal-content li {
+  color: var(--light-muted);
+  font-size: clamp(0.9rem, 1vw + 0.35rem, 0.98rem);
+  margin-bottom: 0.6rem;
+}
+.legal-content ul { padding-left: 1.25rem; }
+.legal-content a { color: var(--accent-ink); text-decoration: underline; }
+.legal-placeholder {
+  background: rgba(140, 165, 203, 0.16);
+  border-left: 4px solid var(--sky-blue);
+  padding: 0.5rem 0.85rem;
+  border-radius: 0 8px 8px 0;
+  color: var(--dark-grey);
+  font-style: italic;
+}
+.legal-updated { color: var(--light-muted); font-size: 0.85rem; margin-top: 1.5rem; }
+
+/* Footer address block + legal links */
+.footer-address {
+  color: var(--dark-muted);
+  font-size: clamp(0.82rem, 1vw + 0.3rem, 0.9rem);
+  font-style: normal;
+  line-height: 1.7;
+}
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+.footer-legal-links a { color: var(--dark-muted); }
+.footer-legal-links a:hover { color: var(--sky-blue); }
+
+/* Hero layout: on phones, proof visual below text with breathing room */
+@media (max-width: 768px) {
+  .hero-proof { max-width: 100%; margin-top: 1.5rem; }
+  .hero-microtrust { justify-content: center; }
 }

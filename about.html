@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f1117" />
-  <meta name="description" content="About Autus Robotics: next-generation AI software, Agentic AI, and AI-driven robotics and automation." />
+  <meta name="theme-color" content="#2F67B4" />
   <title>About | Autus Robotics</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <meta name="description" content="Autus Robotics is a Berlin robotics company building shelf-scanning and restocking robot cells and photo-to-3D planogram digital twins for retail and logistics." />
+  <link rel="canonical" href="https://autusrobotics.com/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Autus Robotics" />
+  <meta property="og:title" content="About | Autus Robotics" />
+  <meta property="og:description" content="A Berlin robotics company pairing proven robot hardware with in-house perception and control software for retail and logistics." />
+  <meta property="og:image" content="https://autusrobotics.com/assets/img/og-autus.jpg" />
+  <meta property="og:url" content="https://autusrobotics.com/about.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/styles.css?v=4" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">Autus<span> Robotics</span></a>
@@ -19,9 +30,9 @@
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
-        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+        <a href="contact.html" class="btn btn-primary">Book a call</a>
       </nav>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -29,56 +40,82 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <header class="page-header">
       <div class="container">
-        <h1>About us</h1>
-        <p>We build software that sits at the intersection of AI and automation—Agentic AI, intelligent automation, and AI-driven robotics.</p>
+        <h1>About Autus Robotics</h1>
+        <p>A Berlin robotics company making retail and logistics work fuller, faster and more accurate.</p>
       </div>
     </header>
 
     <div class="content-area section-light">
       <div class="container">
-        <div class="about-intro">
-          <p>Autus Robotics is a software services company focused on next-generation AI. We specialize in Agentic AI and other new generational AI-based automation solutions, as well as AI-driven robotics and automation software.</p>
-          <p>Our clients include organizations like Andersen and a growing network of partners around the world. We combine technical depth with a practical focus on delivery—so you get platforms that work in production, not just in concept.</p>
+        <div class="about-intro reveal">
+          <p>Autus Robotics builds and operates robot cells that automate physical tasks in retail and logistics &mdash; starting with scanning and restocking supermarket shelves, and extending to picking and palletising. Our perception software also turns an ordinary shelf photo into a 3-D product/tray digital twin, so retailers get a live planogram model as well as a robot that can act on it.</p>
+          <p>We combine standard, proven robots (for example Universal Robots) with our own perception and control software, and we prove value in a short, fixed-fee pilot before any large commitment. The result is automation that works in the real world &mdash; on a real aisle or line &mdash; not just in a slide deck.</p>
         </div>
-        <p class="section-label">What we stand for</p>
-        <h2 class="section-title">Our approach</h2>
+
+        <p class="section-label reveal">What we stand for</p>
+        <h2 class="section-title reveal">Our approach</h2>
         <div class="values-list">
-          <div class="value-item">
-            <h3>Next-generation AI</h3>
-            <p>We work with Agentic AI and modern AI stacks to build systems that plan, reason, and act—not just respond.</p>
+          <div class="value-item reveal">
+            <h3>Outcomes, not buzzwords</h3>
+            <p>We sell a measurable result &mdash; on-shelf availability, labour hours saved, fewer stockouts &mdash; and agree the success measure before the pilot starts.</p>
           </div>
-          <div class="value-item">
-            <h3>Automation that scales</h3>
-            <p>From workflows to robotics, we design automation that integrates with your environment and grows with your needs.</p>
+          <div class="value-item reveal delay-1">
+            <h3>Proven hardware, our software</h3>
+            <p>Reliable off-the-shelf robots plus perception and control software we build in-house. Less bespoke risk, faster to deploy, easier to maintain.</p>
           </div>
-          <div class="value-item">
-            <h3>Clear delivery</h3>
-            <p>Transparent communication, defined outcomes, and a focus on what ships—so you see progress from day one.</p>
+          <div class="value-item reveal delay-2">
+            <h3>Start small, de-risked</h3>
+            <p>A fixed-fee pilot on one aisle or line, credited toward deployment. You find out cheaply whether it works before committing.</p>
           </div>
         </div>
+
+        <p class="section-label reveal" style="margin-top: 2.5rem;">The team</p>
+        <h2 class="section-title reveal">Who&rsquo;s behind Autus</h2>
+        <p class="section-desc reveal">We&rsquo;re a small, hands-on robotics team in Berlin. Individual names and photos will be added here &mdash; the placeholders below mark where they go.</p>
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-avatar" aria-hidden="true">A</div>
+            <h3><span class="fillme">Founder name</span></h3>
+            <p class="role">Founder &amp; Robotics Lead</p>
+            <p>Owns the robot cell, perception pipeline and customer pilots.</p>
+          </div>
+          <div class="team-card reveal delay-1">
+            <div class="team-avatar" aria-hidden="true">R</div>
+            <h3><span class="fillme">Name to be added</span></h3>
+            <p class="role">Robotics / Perception Engineer</p>
+            <p>Computer vision, 3-D reconstruction and robot control.</p>
+          </div>
+          <div class="team-card reveal delay-2">
+            <div class="team-avatar" aria-hidden="true">+</div>
+            <h3><span class="fillme">We&rsquo;re growing</span></h3>
+            <p class="role">Join us</p>
+            <p>Interested in retail robotics? Reach out via the contact page.</p>
+          </div>
+        </div>
+
         <section class="cta-strip">
           <div class="container">
-            <h2 class="section-title">Let’s talk</h2>
-            <p class="section-desc">Have a project in mind? We’d like to hear from you.</p>
-            <a href="contact.html" class="btn btn-primary">Contact us</a>
+            <h2 class="section-title reveal">Let&rsquo;s talk</h2>
+            <p class="section-desc reveal">Have a shelf, aisle or line you&rsquo;d like to automate? We&rsquo;d like to hear about it.</p>
+            <a href="contact.html" class="btn btn-primary reveal">Book a 20-min call</a>
           </div>
         </section>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer section-dark">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo">Autus<span> Robotics</span></div>
-          <p>Specialized in Agentic AI, AI-based automation, and AI-driven robotics and automation software.</p>
+          <p>Robot cells that scan and restock supermarket shelves, and perception software that turns a shelf photo into a live 3-D planogram twin.</p>
         </div>
         <div class="footer-col">
-          <h4>Site</h4>
+          <h2>Site</h2>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -87,18 +124,29 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:info@autusrobotics.com">info@autusrobotics.com</a></li>
+          <h2>Contact</h2>
+          <address class="footer-address">
+            Autus Robotics<br />
+            <span class="fillme">Street address &mdash; to be filled</span><br />
+            <span class="fillme">Postal code, Berlin</span><br />
+            Germany<br />
+            <a href="mailto:info@autusrobotics.com">info@autusrobotics.com</a>
+          </address>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul class="footer-legal-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Autus Robotics. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Autus Robotics. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
