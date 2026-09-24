@@ -948,6 +948,115 @@ footer.site-footer::before {
   color: var(--blue-light);
 }
 
+/* Enquiry form — two-column rows, validation, consent, honeypot, status */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+.form-group .req {
+  color: var(--strong-blue);
+  font-weight: 700;
+}
+.form-group .optional {
+  color: var(--light-muted);
+  font-weight: 400;
+  font-size: 0.85em;
+}
+.field-error {
+  color: #b3261e;
+  font-size: 0.82rem;
+  margin-top: 0.35rem;
+  min-height: 0;
+}
+.field-error:empty {
+  display: none;
+}
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: #b3261e;
+}
+
+/* Honeypot: kept in the DOM for bots, removed from view and tab order */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Consent checkbox row */
+.form-consent {
+  margin-top: 0.25rem;
+}
+.consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: clamp(0.82rem, 1vw + 0.3rem, 0.9rem);
+  font-weight: 400;
+  color: var(--light-muted);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.consent-label input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.15rem;
+  accent-color: var(--strong-blue);
+  cursor: pointer;
+}
+.consent-label a {
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+/* Submit status message */
+.form-status {
+  margin-top: 1rem;
+  font-size: clamp(0.875rem, 1vw + 0.35rem, 0.95rem);
+  line-height: 1.55;
+  border-radius: var(--radius);
+  padding: 0;
+}
+.form-status:empty {
+  display: none;
+}
+.form-status.is-success,
+.form-status.is-error,
+.form-status.is-info {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(0.85rem, 2vw, 1.1rem);
+  border: 1px solid;
+}
+.form-status.is-success {
+  color: #0f5132;
+  background: #e7f4ec;
+  border-color: #a9d5bd;
+}
+.form-status.is-error {
+  color: #842029;
+  background: #fbe9e9;
+  border-color: #e6b7bb;
+}
+.form-status.is-info {
+  color: var(--navy);
+  background: rgba(140, 165, 203, 0.14);
+  border-color: var(--faded-blue);
+}
+.form-status a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* Services page list */
 .services-list {
   display: flex;

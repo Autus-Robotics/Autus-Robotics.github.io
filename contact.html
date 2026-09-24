@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <link rel="stylesheet" href="css/styles.css?v=4" />
 </head>
 <body>
   <header class="site-header">
@@ -39,26 +39,53 @@
 
     <div class="content-area section-light">
       <div class="container">
-        <form class="contact-form-wrap" id="contact-form">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
+        <form class="contact-form-wrap" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
+              <p class="field-error" data-error-for="name" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="company">Company <span class="optional">(optional)</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder="Your company" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="your@email.com" required />
+              <p class="field-error" data-error-for="email" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+49 …" />
+            </div>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" placeholder="Tell us about your shelves, line or project — and what you'd like to achieve." required></textarea>
+            <p class="field-error" data-error-for="message" role="alert"></p>
           </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Brief subject" />
+
+          <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="botcheck" tabindex="-1" autocomplete="off" />
           </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="body" placeholder="Your message or project details..." required></textarea>
+
+          <div class="form-group form-consent">
+            <label class="consent-label" for="consent">
+              <input type="checkbox" id="consent" name="consent" required />
+              <span>I agree that Autus Robotics may store and use the details I provide to respond to my enquiry. We never share them, and you can ask us to delete them at any time. <span class="req" aria-hidden="true">*</span></span>
+            </label>
+            <p class="field-error" data-error-for="consent" role="alert"></p>
           </div>
-          <button type="submit" class="btn btn-primary">Send message</button>
+
+          <button type="submit" class="btn btn-primary" id="contact-submit">Send message</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
         </form>
-        <p class="contact-note">Submitting opens your email client with a draft to <a href="mailto:info@autusrobotics.com">info@autusrobotics.com</a>. You can also email us there directly.</p>
+        <p class="contact-note">Prefer email? Write to us any time at <a href="mailto:info@autusrobotics.com">info@autusrobotics.com</a>.</p>
       </div>
     </div>
   </main>
@@ -92,23 +119,8 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
-  <script>
-    (function() {
-      var form = document.getElementById('contact-form');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var subject = document.getElementById('subject').value || 'Contact from Autus Robotics website';
-          var body = document.getElementById('message').value;
-          var name = document.getElementById('name').value;
-          var email = document.getElementById('email').value;
-          body = 'From: ' + name + ' (' + email + ')\n\n' + body;
-          var mailto = 'mailto:info@autusrobotics.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-          window.location.href = mailto;
-        });
-      }
-    })();
-  </script>
+  <script src="js/config.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
+  <script src="js/contact.js?v=4"></script>
 </body>
 </html>

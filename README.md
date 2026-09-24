@@ -12,7 +12,7 @@ Website for **autusrobotics.com** — software services focused on Agentic AI, A
 - **Home** — Hero, services overview, clients (e.g. Andersen), happy customer testimonials, CTA
 - **Services** — Agentic AI, AI automation, AI-driven robotics & automation software
 - **About** — Company intro and approach
-- **Contact** — Form that opens mail to **info@autusrobotics.com**
+- **Contact** — Enquiry form that emails **info@autusrobotics.com** (with a mailto fallback)
 
 ## Running locally
 
@@ -39,4 +39,6 @@ The “Happy customers” section on the home page uses static placeholder quote
 
 ## Contact
 
-All contact form submissions open the user’s email client with a draft to **info@autusrobotics.com**. For server-side form handling (e.g. Formspree, Netlify Forms), replace the form in `contact.html` and point the action to your endpoint.
+The enquiry form on `contact.html` posts messages to a pluggable email endpoint (Web3Forms by default, Formspree optional) and validates input client-side. Until an access key is configured it gracefully falls back to opening the visitor’s email client with a pre-filled draft to **info@autusrobotics.com**, so no enquiry is lost.
+
+To make enquiries arrive by email, follow the one-minute setup at the top of [`js/config.js`](js/config.js) — that file is the single source of truth for the provider, access key, and destination inbox.
