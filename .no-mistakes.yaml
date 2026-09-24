@@ -1,0 +1,15 @@
+# no-mistakes repo config (read from the trusted default branch).
+#
+# This is a plain static GitHub Pages site with no CI workflows, so the
+# pipeline CI step must treat zero registered checks as green instead of
+# polling for days waiting for checks that will never register.
+# Remove this when real CI is added.
+no_ci: true
+
+# Honest test gate: a dependency-free, network-free smoke test that validates
+# every .html file parses and has the core scaffolding (doctype, title,
+# charset, viewport), that every local href/src/image/favicon target resolves
+# to a file on disk, and that element ids are unique per document.
+# See scripts/check_site.py for exactly what it checks.
+commands:
+  test: python3 scripts/check_site.py
